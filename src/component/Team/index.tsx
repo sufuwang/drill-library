@@ -1,5 +1,8 @@
+import {Link} from '@react-navigation/native';
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+// import Table from '../Table';
+import Table from '../../page/statistics';
 
 const styles = StyleSheet.create({
   title: {
@@ -78,19 +81,69 @@ const styles = StyleSheet.create({
     height: 134,
     marginRight: 10,
   },
+  SAContent: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  SAContentLeft: {
+    // width: 30,
+  },
+  SAContentLeftTitle: {
+    color: 'black',
+    fontSize: 18,
+    fontWeight: '500',
+    fontFamily: 'League Gothic',
+    backgroundColor: '#d9d9d9',
+    lineHeight: 40,
+    paddingLeft: 14,
+    paddingRight: 14,
+  },
+  SAContentLeftBody: {
+    paddingLeft: 16,
+    paddingTop: 4,
+    display: 'flex',
+    borderRightColor: '#eeeeee',
+    borderRightWidth: 1,
+  },
+  SAContentLeftBodyRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
+  SAContentLeftBodyAvatar: {
+    width: 28,
+    height: 28,
+    marginRight: 12,
+  },
+  SAContentLeftBodyText: {
+    width: 84,
+    height: 28,
+    fontWeight: '400',
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#666666',
+  },
+  SAContentRight: {
+    flex: 1,
+  },
 });
 
 const renderHeader = () => {
   return (
     <View style={styles.header}>
-      <Image
-        style={styles.headerImage}
-        source={require('./images/head-statistics.jpg')}
-      />
-      <Image
-        style={styles.headerImage}
-        source={require('./images/head-roster.jpg')}
-      />
+      <Link to={{screen: 'Statistics'}}>
+        <Image
+          style={styles.headerImage}
+          source={require('./images/head-statistics.jpg')}
+        />
+      </Link>
+      <Link to={{screen: 'Roster'}}>
+        <Image
+          style={styles.headerImage}
+          source={require('./images/head-roster.jpg')}
+        />
+      </Link>
     </View>
   );
 };
@@ -161,13 +214,49 @@ const renderTeamLeaders = () => {
     </View>
   );
 };
+const renderStandingsLeftContent = () => {
+  return [
+    'Clippers',
+    'Grizzlies',
+    'Lakers',
+    'Kings',
+    'Warriors',
+    'Clippers',
+    'Grizzlies',
+    'Lakers',
+    'Kings',
+    'Warriors',
+  ].map((text, textIndex) => {
+    return (
+      <View key={textIndex} style={styles.SAContentLeftBodyRow}>
+        <Image
+          style={styles.SAContentLeftBodyAvatar}
+          source={require('./images/avatar.jpg')}
+        />
+        <Text style={styles.SAContentLeftBodyText}>{text}</Text>
+      </View>
+    );
+  });
+};
 const renderStandings = () => {
   return (
     <>
       <View style={styles.SA}>
         <Text style={styles.SATitle}>Standings</Text>
       </View>
-      <View></View>
+      <View style={styles.SAContent}>
+        <View style={styles.SAContentLeft}>
+          <Text style={styles.SAContentLeftTitle}>PACIFIC DIVISION</Text>
+          <View style={styles.SAContentLeftBody}>
+            {renderStandingsLeftContent()}
+          </View>
+        </View>
+        <View style={styles.SAContentRight}>
+          <ScrollView horizontal>
+            <Table />
+          </ScrollView>
+        </View>
+      </View>
     </>
   );
 };

@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: 'white',
-    marginBottom: 34,
   },
 });
 const ForYou: any = () => {
@@ -52,7 +51,6 @@ const menus: Menus = [
       <Image style={styles.icon} source={require('./images/forYou-f.jpg')} />
     ),
     component: ForYou,
-    // component: Team,
   },
   {
     name: 'Schedule',
