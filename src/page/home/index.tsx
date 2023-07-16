@@ -4,6 +4,7 @@ import {Image, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import Header from '../../component/Header';
 import _ForYou from '../../component/ForYou';
 import _Team from '../../component/Team';
+import _Profile from '../../component/Profile';
 
 const Tab = createBottomTabNavigator();
 const styles = StyleSheet.create({
@@ -35,6 +36,18 @@ const Team: any = () => {
     </SafeAreaView>
   );
 };
+const Schedule = () => {
+  return <Text>Schedule</Text>;
+};
+const Profile: any = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <_Profile />
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 type Menus = Array<{
   name: string;
@@ -60,7 +73,7 @@ const menus: Menus = [
     focusedIcon: (
       <Image style={styles.icon} source={require('./images/schedule-f.jpg')} />
     ),
-    component: ForYou,
+    component: Schedule,
   },
   {
     name: 'Train',
@@ -68,7 +81,7 @@ const menus: Menus = [
     focusedIcon: (
       <Image style={styles.icon} source={require('./images/train-f.jpg')} />
     ),
-    component: ForYou,
+    component: Schedule,
   },
   {
     name: 'Team',
@@ -79,12 +92,12 @@ const menus: Menus = [
     component: Team,
   },
   {
-    name: 'More',
+    name: 'Profile',
     icon: <Image style={styles.icon} source={require('./images/more.jpg')} />,
     focusedIcon: (
       <Image style={styles.icon} source={require('./images/more-f.jpg')} />
     ),
-    component: ForYou,
+    component: Profile,
   },
 ];
 

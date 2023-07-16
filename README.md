@@ -1,11 +1,20 @@
 # Drill Library
 
-## Tips
+## How to Run
 
-### How to simulate by IPhone 14 Pro Max?
+1. delete old folder: `rm -rf ./drill-library`
+2. get latest code: `git clone https://github.com/sufuwang/drill-library.git`
+3. run `cd ./drill-library`
+4. prepare environment<br />
+   a. `pod deintegrate ./ios/MyApp.xcodeproj`<br />
+   b. `pod setup`<br />
+   c. `pod install --project-directory=./ios`
+5. install node packages: `yarn`
+6. run simulator: `yarn dev`
 
-1. run `yarn start` , and don't press `i`<br />
-2. run `yarn run ios` in new terminal
+If you want to simulate in <b>IPhone 14 Pro Max</b>, you should open a new terminal, and run `yarn ios` after `yarn dev` command.
+
+Otherwise, you only enter `i`, after `yarn dev` command, will show <b>IPhone 3rd</b>.
 
 ## Guide Docs
 
