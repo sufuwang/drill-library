@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {Carousel} from 'react-native-ui-lib';
+import {Link} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   topNews: {
@@ -68,10 +69,19 @@ const renderTopNews = () => {
           style={styles.topNewsImage}
           source={require('./images/photo-shadow.jpg')}
         />
-        <Text style={styles.topNewsTitle}>
-          Lakers upgrade roster with Gabe Vincent and Taurean Prince but still
-          have work to do
-        </Text>
+        <Link
+          to={{
+            screen: 'TopPhoto',
+            params: {
+              title:
+                'Lakers upgrade roster with Gabe Vincent and Taurean Prince but stillhave work to do',
+            },
+          }}>
+          <Text style={styles.topNewsTitle}>
+            Lakers upgrade roster with Gabe Vincent and Taurean Prince but still
+            have work to do
+          </Text>
+        </Link>
         <Text style={styles.topNewsRow}>
           <Text style={styles.topNewsName}>Jovan Buha</Text>
           <Text> · </Text>

@@ -4,6 +4,8 @@ import Home from '../home';
 import Statistics from '../statistics';
 import Roster from '../roster';
 import Player from '../player';
+import TopVideo from '../topVideo';
+import TopPhoto from '../topPhoto';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +30,8 @@ export default () => {
           headerTransparent: true,
         }}
       />
+      <Stack.Screen name="TopPhoto" component={TopPhoto} />
+      <Stack.Screen name="TopVideo" component={TopVideo} />
     </Stack.Navigator>
   );
 };

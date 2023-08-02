@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Link} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   container: {
@@ -81,10 +82,19 @@ const renderTopVideo = () => {
         style={styles.topVideoImage}
         source={require('./images/video-2-shadow.jpg')}
       />
-      <Text style={styles.topVideoTitle}>
-        Lakers upgrade roster with Gabe Vincent and Taurean Prince but still
-        have work to do
-      </Text>
+      <Link
+        to={{
+          screen: 'TopVideo',
+          params: {
+            title:
+              'Lakers upgrade roster with Gabe Vincent and Taurean Prince but stillhave work to do',
+          },
+        }}>
+        <Text style={styles.topVideoTitle}>
+          Lakers upgrade roster with Gabe Vincent and Taurean Prince but still
+          have work to do
+        </Text>
+      </Link>
       <Text style={styles.topVideoRow}>
         <Text style={styles.topVideoName}>Jovan Buha</Text>
         <Text> · </Text>
